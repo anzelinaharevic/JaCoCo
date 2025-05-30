@@ -38,4 +38,9 @@ public class TestPassenger {
         assertEquals("Mrs", mypass3.getTitle());
 
     }
+
+    @Test
+    void testShortFirstName(){
+        assertThrows(IllegalArgumentException.class, () -> {mypass = new Passenger("Mr", "Eo", "Ager");});
+    }
 }
