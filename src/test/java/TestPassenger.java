@@ -32,10 +32,20 @@ public class TestPassenger {
     @Test
     void testTitleSuccess(){
         assertEquals("Ms", mypass.getTitle());
-        Passenger  mypass2 = new Passenger("Mr", "Eoin", "Harevica");
+        Passenger  mypass2 = new Passenger("Mr", "Anzelina", "Harevica");
         assertEquals("Mr", mypass2.getTitle());
-        Passenger  mypass3 = new Passenger("Mrs", "Anzelina", "Ager");
+        Passenger  mypass3 = new Passenger("Mrs", "Anzelina", "Harevica");
         assertEquals("Mrs", mypass3.getTitle());
 
+    }
+
+    @Test
+    void testShortFirstName(){
+        assertThrows(IllegalArgumentException.class, () -> {mypass = new Passenger("Ms", "An", "Harevica");});
+    }
+
+    @Test
+    void testShortLastName(){
+        assertThrows(IllegalArgumentException.class, () -> {mypass = new Passenger("Ms", "Anzelina", "Ha");});
     }
 }
